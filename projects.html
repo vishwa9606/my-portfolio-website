@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Omkar's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Projects</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="skills.html">Skills</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Filter Buttons -->
+        <div id="filter-buttons">
+            <button data-filter="all">All</button>
+            <button data-filter="web-development">Web Development</button>
+            <button data-filter="web-design">Web Design</button>
+            <button data-filter="graphic-design">Graphic Design</button>
+        </div>
+
+        <!-- Projects Section -->
+        <section id="project-gallery">
+            <div class="project" data-category="web-development">
+                <h3>E-Commerce Website</h3>
+                <p>A fully functional e-commerce website with a cart and payment gateway integration.</p>
+                <img src="images/ecommerce.jpg" alt="E-Commerce Website Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="web-design">
+                <h3>Landing Page</h3>
+                <p>A modern landing page designed for a startup.</p>
+                <img src="images/lando-landing-page--3-.webp" alt="Landing Page Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="graphic-design">
+                <h3>Brand Identity</h3>
+                <p>Designed a cohesive brand identity, including a logo, color scheme, and typography for a startup.</p>
+                <img src="images/brand-identity.jpg" alt="Brand Identity Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="web-development">
+                <h3>Blog Platform</h3>
+                <p>A dynamic blog platform allowing users to post, edit, and delete articles with a CMS backend.</p>
+                <img src="images/blog.png" alt="Blog Platform Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="web-design">
+                <h3>Restaurant Website</h3>
+                <p>A visually appealing and responsive website for a local restaurant, including online reservations.</p>
+                <img src="images/restaurant.jpeg" alt="Restaurant Website Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="graphic-design">
+                <h3>Social Media Graphics</h3>
+                <p>Custom graphics designed for a brand's social media campaign using Adobe Photoshop.</p>
+                <img src="images/social-media-graphics.webp" alt="Social Media Graphics Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="web-development">
+                <h3>Online Quiz App</h3>
+                <p>A real-time quiz application with user registration and leaderboard features.</p>
+                <img src="images/online-quiz.jpg" alt="Online Quiz App Screenshot" width="500px" loading="lazy">
+            </div>
+            <div class="project" data-category="web-design">
+                <h3>Portfolio Redesign</h3>
+                <p>A creative redesign of a personal portfolio website to improve UX and visual appeal.</p>
+                <img src="images/portfolio.webp" alt="Portfolio Redesign Screenshot" width="500px" loading="lazy">
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const filterButtons = document.querySelectorAll("#filter-buttons button");
+            const projects = document.querySelectorAll(".project");
+
+            filterButtons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const filter = button.getAttribute("data-filter");
+
+                    projects.forEach(project => {
+                        if (filter === "all" || project.getAttribute("data-category") === filter) {
+                            project.style.display = "block"; // Show matching projects
+                        } else {
+                            project.style.display = "none"; // Hide non-matching projects
+                        }
+                    });
+
+                    // Highlight the active button
+                    filterButtons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
